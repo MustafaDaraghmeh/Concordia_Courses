@@ -46,3 +46,7 @@ Obese:       30 or greater
 - https://learning.oreilly.com/library/view/c-how-to/9780134448930/
 - https://cplusplus.com/doc/tutorial/classes/
 - https://moodle.concordia.ca/moodle/course/view.php?id=153586
+- "Learn C++ Programming -Beginner to Advance- Deep Dive in C++,"  https://concordia.udemy.com/course/cpp-deep-dive/
+- "Mastering Data Structures & Algorithms using C and C++," https://concordia.udemy.com/course/datastructurescncpp/
+- "Git Going Fast: One Hour Git Crash Course," https://concordia.udemy.com/course/git-going-fast/
+- "The Git & Github Bootcamp," https://concordia.udemy.com/course/git-and-github-bootcamp/
