@@ -3,4 +3,4 @@ project(Concordia_Courses)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Concordia_Courses COEN_244_S_2224/TUT-03/ex09_04/ex09_04.cpp COEN_244_S_2224/TUT-03/ex09_04/Time.cpp COEN_244_S_2224/TUT-03/ex09_04/Time.h)
+add_executable(Concordia_Courses COEN_244_S_2224/TUT-04/review_exercises/ex02/Account.h COEN_244_S_2224/TUT-04/review_exercises/ex02/Account.cpp COEN_244_S_2224/TUT-04/review_exercises/ex02/driver.cpp)

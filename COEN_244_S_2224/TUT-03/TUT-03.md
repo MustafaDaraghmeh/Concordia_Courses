@@ -6,7 +6,7 @@
 ## Exercises:
 **9.4** (Enhancing Class Time) Provide a constructor that’s capable of using the current time from the time and localtime functions—declared in the C++ Standard Library header <ctime>—to initialize an object of the Time class. For descriptions of C++ Standard Library headers, classes and functions, see http://cppreference.com.
 
-9.5 (Complex Class) Create a class called Complex for performing arithmetic with complex numbers. Write a program to test your class. Complex numbers have the form
+**9.5** (Complex Class) Create a class called Complex for performing arithmetic with complex numbers. Write a program to test your class. Complex numbers have the form
 
 ``` c++
 realPart + imaginaryPart * i
