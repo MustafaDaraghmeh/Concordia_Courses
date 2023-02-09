@@ -12,6 +12,7 @@ class B {
 public:
     B() { }
     void print(A &a);
+    inline int mean(int i, int j) { return (i + j)/2; }
 };
 
 

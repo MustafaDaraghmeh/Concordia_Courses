@@ -9,6 +9,7 @@
 class A {
     friend class B;  // All B's functions are A's friends
 
+
 private:
     int i;     // private member of A
 
