@@ -1,34 +1,33 @@
-// Exercise 9.5 Solution: Complex.cpp
-// Member-function definitions for class Complex.
-#include <iostream> 
-#include <sstream> // for ostringstream class
-#include "Complex.h"
-using namespace std;
+// Exercise 9.24 Solution: Hand.h
+// Stores and calculates attributes of a hand of cards.
+#ifndef HAND_H
+#define HAND_H
 
-Complex::Complex(double real, double imaginary)
-   : realPart(real), imaginaryPart(imaginary) { } 
+#include <string>
+#include <vector>
+#include "Card.h"
+#include "DeckOfCards.h"
 
-Complex Complex::add(const Complex &right) const {
-//    Complex temp_obj(realPart + right.realPart, imaginaryPart + right.imaginaryPart);
-//    return  temp_obj;
-   return Complex(
-      realPart + right.realPart, imaginaryPart + right.imaginaryPart);
-} 
+class Hand {
+public:
+   // constructor takes 5 cards from Deck
+   Hand(DeckOfCards& deck);
+   void print() const; // display hand
 
-Complex Complex::subtract(const Complex &right) const {
-   return Complex(realPart - right.realPart, imaginaryPart - right.imaginaryPart);
-} 
+   // determine if we have the given scoring hand
+   bool pair() const;
+   bool twoPair() const;
+   bool threeOfAKind() const;
+   bool fourOfAKind() const;
+   bool flush() const;
+   bool straight() const;
+private:
+   std::vector<Card> hand; // our hand
+   std::vector<int> faceCount; // number of each face
+}; 
 
-string Complex::toString() const {
-   ostringstream output;
-   output << "(" << realPart << ", " << imaginaryPart << ")";
-   return output.str();
-} 
+#endif
 
-void Complex::setComplexNumber(double rp, double ip) {
-   realPart = rp;
-   imaginaryPart = ip;
-} 
 
 /**************************************************************************
  * (C) Copyright 1992-2017 by Deitel & Associates, Inc. and               *
@@ -44,5 +43,3 @@ void Complex::setComplexNumber(double rp, double ip) {
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
  **************************************************************************/
-
-

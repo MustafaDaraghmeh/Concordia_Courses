@@ -1,34 +1,41 @@
-// Exercise 9.5 Solution: Complex.cpp
-// Member-function definitions for class Complex.
-#include <iostream> 
-#include <sstream> // for ostringstream class
-#include "Complex.h"
-using namespace std;
+// Exercise 9.23 Solution: Card.h
+// Class Card represents the face and suit of a card.
+#ifndef CARD_H
+#define CARD_H
 
-Complex::Complex(double real, double imaginary)
-   : realPart(real), imaginaryPart(imaginary) { } 
+#include <string>
 
-Complex Complex::add(const Complex &right) const {
-//    Complex temp_obj(realPart + right.realPart, imaginaryPart + right.imaginaryPart);
-//    return  temp_obj;
-   return Complex(
-      realPart + right.realPart, imaginaryPart + right.imaginaryPart);
-} 
+class Card {
+public:
+   static const size_t FACES{13}; // total number of faces
+   static const size_t SUITS{4}; // total number of suits
+   
+   enum class Face {Ace, Deuce, Three, Four, Five, Six, Seven, Eight,
+      Nine, Ten, Jack, Queen, King};
+   enum class Suit {Hearts, Diamonds, Clubs, Spades};
 
-Complex Complex::subtract(const Complex &right) const {
-   return Complex(realPart - right.realPart, imaginaryPart - right.imaginaryPart);
-} 
+   Card(Face cardFace, Suit cardSuit); // initialize face and suit
+   std::string toString() const; // returns a string representation of a Card
 
-string Complex::toString() const {
-   ostringstream output;
-   output << "(" << realPart << ", " << imaginaryPart << ")";
-   return output.str();
-} 
+   // get the card's face
+   Face getFace() const {
+      return face;
+   } 
 
-void Complex::setComplexNumber(double rp, double ip) {
-   realPart = rp;
-   imaginaryPart = ip;
-} 
+   // get the card's suit
+   Suit getSuit() const {
+      return suit;
+   } 
+private:
+   Face face;
+   Suit suit;
+
+   static const std::string faceNames[FACES];
+   static const std::string suitNames[SUITS];
+}; 
+
+#endif
+
 
 /**************************************************************************
  * (C) Copyright 1992-2017 by Deitel & Associates, Inc. and               *
@@ -44,5 +51,3 @@ void Complex::setComplexNumber(double rp, double ip) {
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
  **************************************************************************/
-
-

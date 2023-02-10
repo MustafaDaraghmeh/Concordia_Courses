@@ -1,34 +1,25 @@
-// Exercise 9.5 Solution: Complex.cpp
-// Member-function definitions for class Complex.
-#include <iostream> 
-#include <sstream> // for ostringstream class
-#include "Complex.h"
-using namespace std;
+// Exercise 9.23 Solution: DeckOfCards.h
+// Class DeckOfCards represents a deck of 52 playing cards.
+#ifndef DECK_OF_CARDS_H
+#define DECK_OF_CARDS_H
 
-Complex::Complex(double real, double imaginary)
-   : realPart(real), imaginaryPart(imaginary) { } 
+#include <vector>
+#include "Card.h"
 
-Complex Complex::add(const Complex &right) const {
-//    Complex temp_obj(realPart + right.realPart, imaginaryPart + right.imaginaryPart);
-//    return  temp_obj;
-   return Complex(
-      realPart + right.realPart, imaginaryPart + right.imaginaryPart);
-} 
+// DeckOfCards class definition
+class DeckOfCards {
+public:
+   DeckOfCards(); // constructor initializes deck
+   void shuffle(); // shuffles cards in deck
+   Card dealCard(); // deals cards in deck
+   bool moreCards() const; // are there any more cards left
+private:
+   std::vector<Card> deck; // represents deck of cards
+   unsigned currentCard; // index of next card to be dealt
+}; 
 
-Complex Complex::subtract(const Complex &right) const {
-   return Complex(realPart - right.realPart, imaginaryPart - right.imaginaryPart);
-} 
+#endif
 
-string Complex::toString() const {
-   ostringstream output;
-   output << "(" << realPart << ", " << imaginaryPart << ")";
-   return output.str();
-} 
-
-void Complex::setComplexNumber(double rp, double ip) {
-   realPart = rp;
-   imaginaryPart = ip;
-} 
 
 /**************************************************************************
  * (C) Copyright 1992-2017 by Deitel & Associates, Inc. and               *
@@ -44,5 +35,4 @@ void Complex::setComplexNumber(double rp, double ip) {
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
  **************************************************************************/
-
 

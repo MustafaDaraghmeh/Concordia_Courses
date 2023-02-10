@@ -8,6 +8,7 @@ int main() {
    Complex b{9, 2};
 
    Complex c = a.add(b); // invoke add function and assign to object c
+   Complex x(c);
    cout << a.toString() << " + " << b.toString() << " = " << c.toString() << '\n';
 
    a.setComplexNumber(10, 1); // reset realPart and 

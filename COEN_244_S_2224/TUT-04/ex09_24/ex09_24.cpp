@@ -1,34 +1,42 @@
-// Exercise 9.5 Solution: Complex.cpp
-// Member-function definitions for class Complex.
-#include <iostream> 
-#include <sstream> // for ostringstream class
-#include "Complex.h"
+// Exercise 9.24 Solution: ex09_24.cpp
+// Card shuffling and dealing program.
+#include <iostream>
+#include <iomanip>
+#include "DeckOfCards.h" // DeckOfCards class definition
+#include "Hand.h" // Hand class definition
 using namespace std;
 
-Complex::Complex(double real, double imaginary)
-   : realPart(real), imaginaryPart(imaginary) { } 
+int main() {
+   DeckOfCards myDeckOfCards;
+   myDeckOfCards.shuffle(); // place Cards in random order
 
-Complex Complex::add(const Complex &right) const {
-//    Complex temp_obj(realPart + right.realPart, imaginaryPart + right.imaginaryPart);
-//    return  temp_obj;
-   return Complex(
-      realPart + right.realPart, imaginaryPart + right.imaginaryPart);
+   Hand hand(myDeckOfCards); // deal a hand from the deck
+   hand.print(); // display hand
+
+   // check for each type of hand by decreasing ranking
+   if (hand.fourOfAKind()) {
+      cout << "Hand contains four of a kind" << endl;
+   }
+   else if (hand.flush() && hand.straight()) {
+      cout << "Hand contains a straight flush" << endl;
+   }
+   else if (hand.flush()) {
+      cout << "Hand contains a flush" << endl;
+   }
+   else if (hand.straight()) {
+      cout << "Hand contains a straight" << endl;
+   }
+   else if (hand.threeOfAKind()) {
+      cout << "Hand contains three of a kind" << endl;
+   }
+   else if (hand.twoPair()) {
+      cout << "Hand contains two pairs" << endl;
+   }
+   else if (hand.pair()) {
+      cout << "Hand contains a pair" << endl;
+   }
 } 
 
-Complex Complex::subtract(const Complex &right) const {
-   return Complex(realPart - right.realPart, imaginaryPart - right.imaginaryPart);
-} 
-
-string Complex::toString() const {
-   ostringstream output;
-   output << "(" << realPart << ", " << imaginaryPart << ")";
-   return output.str();
-} 
-
-void Complex::setComplexNumber(double rp, double ip) {
-   realPart = rp;
-   imaginaryPart = ip;
-} 
 
 /**************************************************************************
  * (C) Copyright 1992-2017 by Deitel & Associates, Inc. and               *
@@ -44,5 +52,3 @@ void Complex::setComplexNumber(double rp, double ip) {
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
  **************************************************************************/
-
-

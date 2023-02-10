@@ -1,34 +1,25 @@
-// Exercise 9.5 Solution: Complex.cpp
-// Member-function definitions for class Complex.
-#include <iostream> 
-#include <sstream> // for ostringstream class
-#include "Complex.h"
+// Exercise 9.23 Solution: ex09_23.cpp
+// Card shuffling and dealing program.
+#include <iostream>
+#include <iomanip>
+#include "DeckOfCards.h" // DeckOfCards class definition
 using namespace std;
 
-Complex::Complex(double real, double imaginary)
-   : realPart(real), imaginaryPart(imaginary) { } 
+int main() {
+   DeckOfCards myDeckOfCards;
+   myDeckOfCards.shuffle(); // place Cards in random order
 
-Complex Complex::add(const Complex &right) const {
-//    Complex temp_obj(realPart + right.realPart, imaginaryPart + right.imaginaryPart);
-//    return  temp_obj;
-   return Complex(
-      realPart + right.realPart, imaginaryPart + right.imaginaryPart);
+   // print all 52 Cards in the order in which they are dealt
+   for (int i = 1; myDeckOfCards.moreCards(); ++i) {
+      // deal and display a Card
+      cout << left << setw(19) << myDeckOfCards.dealCard().toString();
+
+      if (i % 4 == 0) { // output newline every 4 cards
+         cout << endl;
+      }
+   } 
 } 
 
-Complex Complex::subtract(const Complex &right) const {
-   return Complex(realPart - right.realPart, imaginaryPart - right.imaginaryPart);
-} 
-
-string Complex::toString() const {
-   ostringstream output;
-   output << "(" << realPart << ", " << imaginaryPart << ")";
-   return output.str();
-} 
-
-void Complex::setComplexNumber(double rp, double ip) {
-   realPart = rp;
-   imaginaryPart = ip;
-} 
 
 /**************************************************************************
  * (C) Copyright 1992-2017 by Deitel & Associates, Inc. and               *
@@ -44,5 +35,3 @@ void Complex::setComplexNumber(double rp, double ip) {
  * consequential damages in connection with, or arising out of, the       *
  * furnishing, performance, or use of these programs.                     *
  **************************************************************************/
-
-
